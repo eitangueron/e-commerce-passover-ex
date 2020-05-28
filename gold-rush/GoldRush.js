@@ -1,5 +1,3 @@
-const Matrix = require('./Matrix')
-
 class GoldRush extends Matrix{
     constructor(rowNum, colNum){
         super(rowNum, colNum)
@@ -95,8 +93,13 @@ class GoldRush extends Matrix{
 }
            
 
-const board = new GoldRush(5,5)
-board.generateRandomCoins(10)
+// const board = new GoldRush(5,5)
+// board.generateRandomCoins(10)
+
+
+
+
+
 
 // board.print()
 
@@ -113,9 +116,9 @@ board.generateRandomCoins(10)
 
 
 
-board.print()
+// board.print()
 
-console.log(board.playersScores)
+// console.log(board.playersScores)
 // console.log(board.player2Score)
 
 // board.print()

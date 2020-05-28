@@ -52,7 +52,7 @@ class Matrix {
         for(let r=0; r<this.matrix.length; r++){
             for(let c=0; c<this.matrix[r].length; c++){
                 if (num === this.matrix[r][c]){
-                    return {x:c, y:r}
+                    return {x:c, y:r} || null
                 }
             }
         }
@@ -62,4 +62,3 @@ class Matrix {
 // const board = new Matrix(5,5)
 // board.print()
 
-module.exports = Matrix

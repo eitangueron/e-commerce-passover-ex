@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "handlebars": "^4.7.6",
     "jquery": "^3.5.1",
     "less": "^3.11.1",
     "materialize-css": "^1.0.0-rc.2"
