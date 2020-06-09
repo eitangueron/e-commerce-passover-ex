@@ -8,7 +8,6 @@ import React, { Component } from 'react';
         categoryInput:"",
         vendorInput:"",
         amountInput:"",
-
       }
     }
 
@@ -45,7 +44,7 @@ import React, { Component } from 'react';
     }
 
     render() {
-    return (<div id="opreations-form">
+    return (<div id="operations">
               <input type="text" placeholder="Category" name="category-input" value={this.state.categoryInput} onChange={this.updateInput}/>
               <br/>
               <input type="text" placeholder="Vendor" name="vendor-input" value={this.state.vendorInput} onChange={this.updateInput}/>

@@ -1,10 +1,10 @@
 import './App.css';
 import Transactions from './components/Transactions'
 import Operations from './components/Operations'
+import Landing from './components/Landing'
 import React, { Component } from 'react';
 import axios from '../node_modules/axios'
-
-// http://localhost:4000/transactions
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
   class App extends Component {
     
@@ -12,6 +12,7 @@ import axios from '../node_modules/axios'
       super()
       this.state={
         transactions:[],
+        currentPage:'landing'
       }
     }
 
@@ -44,19 +45,21 @@ import axios from '../node_modules/axios'
     render() {
       const balance = this.state.transactions.map(a => a.amount).reduce(this.reducer,0)
       return (
-        <div id="app">
-          <h1 id="total-balance">Balance: ${balance}</h1>
-          <hr/>
-          <div id="all-transactions">
-            <Transactions data={this.state.transactions} deleteAction={this.deleteAction}/>
+        <Router>
+        <div className="App" id="app">
+          <div id="main-links">
+            <h1 id="total-balance">Balance: ${balance}</h1>
+            <hr/>
+            <Link to="/transactions">Transactions</Link>
+            <Link to="/operations">Operations</Link>
           </div>
-          <div id="operations">
-            <Operations addTransaction={this.addTransaction}/>
+            <Route path="/transactions" exact render={() => <Transactions data={this.state.transactions} deleteAction={this.deleteAction}/>}></Route>
+            <Route path='/operations' exact render={() => <Operations addTransaction={this.addTransaction}/>}/>
           </div>
-        </div>
-            )
+        </Router>
+        )
     }
-    
+   
   }
         
 export default App;

@@ -1,9 +1,9 @@
-#app{
-  display: grid;
+/* #app{ */
+  /* display: grid;
   grid-template-areas: 
   "b b"
   "a o";
-}
+} */
 
 #total-balance{
   grid-area: b;
