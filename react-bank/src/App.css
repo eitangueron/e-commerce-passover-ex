@@ -1,0 +1,30 @@
+#app{
+  display: grid;
+  grid-template-areas: 
+  "b b"
+  "a o";
+}
+
+#total-balance{
+  grid-area: b;
+  text-align: center;
+}
+
+#all-transactions{
+  grid-area: a;
+}
+
+#operations{
+  grid-area: o;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+/* .transaction{
+  color: red
+} */
+
+/* #opreations-form button{
+  margin-left: 25%;
+} */
