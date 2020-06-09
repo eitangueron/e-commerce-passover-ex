@@ -28,3 +28,7 @@
 /* #opreations-form button{
   margin-left: 25%;
 } */
+
+.capitalize {
+  text-transform: capitalize;   
+}

@@ -2,31 +2,40 @@ import './App.css';
 import Transactions from './components/Transactions'
 import Operations from './components/Operations'
 import React, { Component } from 'react';
+import axios from '../node_modules/axios'
+
+// http://localhost:4000/transactions
 
   class App extends Component {
     
     constructor(){
       super()
       this.state={
-        transactions:[
-          { amount: 3200, vendor: "Elevation", category: "Salary" },
-          { amount: -7, vendor: "Runescape", category: "Entertainment" },
-          { amount: -20, vendor: "Subway", category: "Food" },
-          { amount: -98, vendor: "La Baguetterie", category: "Food" }
-        ],
+        transactions:[],
       }
+    }
+
+    async getTransactions() {
+      return axios.get("http://localhost:4000/transactions")
+    }
+  
+    async componentDidMount() {
+      const response = await this.getTransactions()
+      this.setState({ transactions: response.data })
     }
     
     reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-    addTransaction = (amount, vendor, category) => {
+    addTransaction = async (amount, vendor, category) => {
+      const response = await axios.post(`http://localhost:4000/transaction`,{amount, vendor, category})
       const newTransactions = [...this.state.transactions]
-      newTransactions.push({amount, vendor, category})
+      newTransactions.push(response.data)
       this.setState({transactions:newTransactions})
     }
 
-    deleteAction = (actionData) => {
-      const indexToDelete = this.state.transactions.findIndex(a => a===actionData)
+    deleteAction = async (actionData) => {
+      const response = await axios.delete(`http://localhost:4000/transaction/${actionData.amount}/${actionData.vendor}/${actionData.category}`)
+      const indexToDelete = this.state.transactions.findIndex(a => a._id===response.data._id)
       const updatedTransactions = [...this.state.transactions]
       updatedTransactions.splice(indexToDelete, 1)
       this.setState({transactions:updatedTransactions})
