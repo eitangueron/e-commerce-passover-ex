@@ -14,12 +14,36 @@
   grid-area: a;
 }
 
+.plus{
+  color: green;
+}
+
+.minus{
+  color: red;
+}
+
 #operations{
   grid-area: o;
   justify-self: center;
   align-self: center;
   text-align: center;
+  margin-top: 5%;
 }
+
+#operations input{
+  margin-bottom: 1%;
+  font-size: 32px;
+  width: 30%;
+}
+
+#deposit, #withdraw{
+  margin-bottom: 1%;
+  height: 40px;
+  width: 115px;
+  font-weight: 800;
+}
+
+
 
 /* .transaction{
   color: red
@@ -103,17 +127,51 @@
   padding-left: 1%;
 }
 
+.transaction{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 2px solid gray;
+}
+
+.delete{
+  display: grid;
+  cursor: pointer;
+}
+
 .transaction i{
-  color:red
+  color:red;
+  margin-bottom: 1%;
+  display: grid;
+  margin-right: 1%;
+  justify-self: end;
+  align-self: end;
 }
 
 .sum{
   padding-left: 1%;
 }
 
+#welcome1, #welcome2{
+  background-color: #3498db;
+  margin-right: 1%;
+  margin-left: 1%;
+  width: 250px;
+  height: 50px;
+  padding-top: 6px;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+
 svg{
   height: 350px;
   width: 350px;
   margin-top: 1%;
   margin-left: 7%;
+  font-size: 7px;
+}
+
+#pie-charts{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
 }

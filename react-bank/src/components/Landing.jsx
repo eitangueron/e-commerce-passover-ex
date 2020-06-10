@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
   class Landing extends Component {
   
@@ -39,8 +40,9 @@ import axios from 'axios'
             <p id="quote">{this.state.quote.text}</p>
             <p id="author">~{this.state.quote.author}~</p>
             <p id="welcome-balance"><b>Current balance:</b> {this.props.balance}</p>
-            <Link to="/transactions"><button>All Transactions</button></Link>
-            <Link to="/operations"><button>New Opreation</button></Link>
+            
+            <Link to="/transactions"><a class="waves-effect waves-light btn" id="welcome1">All Transactions</a></Link>
+            <Link to="/operations"><a class="waves-effect waves-light btn" id="welcome2">New Opreationa</a></Link>
         </div>)
     }
     

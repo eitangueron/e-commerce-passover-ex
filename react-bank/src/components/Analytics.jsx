@@ -15,13 +15,24 @@ import { PieChart } from 'react-minimal-pie-chart';
             }
         })
         const colors = ['#2ecc71', '#f1c40f', '#f39c12', '#9b59b6', '#1abc9c']
-        const pieData = Object.keys(final).map((category,i) => ({'title': category, 'value':Math.abs(final[category]), color: colors[i]}) )
-        console.log(final)
+        const pieData = Object.keys(final).map((category,i) => ({'title': category, 'value':final[category], color: colors[i], label:String}) )
+        const plusPieData = pieData.filter(d => d.value>=0)
+        const minusPieData = pieData.filter(d => d.value<0)
+        const printMinusPieData = minusPieData.map(x => ({'title': x.title, 'value':Math.abs(x.value), 'color': x.color, 'label':x.label}))
         return (
             <div id="sums">
                 <h2>Total by category:</h2>
-                {Object.keys(final).map(category => <SingleSum category={category} sum={final[category]}/>)}
-                <PieChart id="pie-chart" data={pieData}/>
+                {Object.keys(final).map(category => <SingleSum category={category} sum={final[category]} classing={final[category]>0 ? 'plus' : 'minus'}/>)}
+                <div id="pie-charts">
+                    <div id="plus-pie">
+                        <h3>Incomes:</h3>
+                        <PieChart id="pie-chart-plus" className="capitalize" data={plusPieData} label={({ dataEntry }) => dataEntry.title +':'+ `${Math.round(dataEntry.percentage)} %`}/>
+                    </div>
+                    <div id="minus-pie">
+                    <h3>Expenses:</h3>
+                    <PieChart id="pie-chart-minus" className="capitalize" data={printMinusPieData} label={({ dataEntry }) => dataEntry.title +':'+ `${Math.round(dataEntry.percentage)} %`}/>
+                </div>
+                </div>
             </div>)
     }
     

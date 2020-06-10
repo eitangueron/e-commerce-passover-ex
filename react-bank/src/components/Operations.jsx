@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
   class Operations extends Component {
 
@@ -33,6 +34,7 @@ import {Link} from 'react-router-dom'
     deposit = () =>{
       if(this.state.categoryInput && this.state.vendorInput && this.state.amountInput){
         this.props.addTransaction(this.state.amountInput, this.state.vendorInput, this.state.categoryInput)
+        alert('Added new deposit')
         this.clearInputFields()
       }
     }
@@ -40,21 +42,23 @@ import {Link} from 'react-router-dom'
     withdraw = () =>{
       if(this.state.categoryInput && this.state.vendorInput && this.state.amountInput){
         this.props.addTransaction(0-this.state.amountInput, this.state.vendorInput, this.state.categoryInput)
+        alert('Added new withdraw')
         this.clearInputFields()
       }
     }
 
     render() {
-    return (<div id="operations">
+    return (
+        <div id="operations">
               <input type="text" placeholder="Category" name="category-input" value={this.state.categoryInput} onChange={this.updateInput}/>
               <br/>
               <input type="text" placeholder="Vendor" name="vendor-input" value={this.state.vendorInput} onChange={this.updateInput}/>
               <br/>
               <input type="number" placeholder="Amount" name="amount-input" value={this.state.amountInput} onChange={this.updateInput}/>
               <br/>
-              <button onClick={this.deposit}>Deposit</button>
+              <a class="waves-effect waves-light green btn" id="deposit" onClick={this.deposit}>Deposit</a>
               <br/>
-              <button onClick={this.withdraw}>Withdraw</button>
+              <a class="waves-effect waves-light red btn" id="withdraw" onClick={this.withdraw}>Withdraw</a>
           </div>)
     }
     

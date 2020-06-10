@@ -5,7 +5,7 @@ import React, { Component } from 'react';
     render() {
     return (
         <div>
-            <p className={'capitalize sum'}>{this.props.category}: {this.props.sum}</p>
+            <p className={`capitalize sum ${this.props.classing}`}>{this.props.category}: {Math.abs(this.props.sum)}</p>
             <hr/>
         </div>
         )
