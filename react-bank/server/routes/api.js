@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const axios = require('../../node_modules/axios')
 const Transaction = require("../schemas/transactionSchema")
 
 
@@ -25,5 +26,13 @@ router.delete('/transaction/:amount/:vendor/:category',function(req,res){
     .then((response) => res.send(response))
 })
 
+router.get('/quote',async function(req,res){
+    const result = await axios.get("https://type.fit/api/quotes") 
+    const response = [...result.data]
+    const arrLength = 30
+    response.splice(arrLength,response.length)
+    const index = Math.floor(Math.random()*arrLength-1)
+    res.send(response[index])
+})
 
 module.exports = router

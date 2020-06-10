@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
   class Transaction extends Component {
     
     deleteAction = () => {
@@ -13,7 +14,7 @@ import React, { Component } from 'react';
                 <p className="capitalize">Category: {actionData.category}</p>
                 <p className="capitalize">Vendor: {actionData.vendor}</p>
                 <p>Amount: {actionData.amount}</p>
-                <button onClick={this.deleteAction}>Delete</button>
+                <i class="material-icons" onClick={this.deleteAction}>delete</i>
                 <hr/>
             </div>
             )

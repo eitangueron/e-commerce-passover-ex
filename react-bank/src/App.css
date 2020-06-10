@@ -32,3 +32,88 @@
 .capitalize {
   text-transform: capitalize;   
 }
+
+#main-links{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  /* margin-bottom: 10px; */
+  padding-top: 30px;
+  text-align: center;
+  font-size: 32px;
+  border-bottom: 3px solid black;
+  background-color: #3498db;
+}
+
+#main-links a{
+  /* border-right: 1px solid black;
+  border-left: 1px solid black; */
+  color: black;
+  padding-bottom: 30px;
+  text-decoration: none;
+}
+
+#welcome{
+  text-align: center;
+  margin-top: 100px;
+}
+
+#welcome button{
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-right:5px;
+  border-radius: 5%;
+  background: aliceblue;
+}
+
+
+#greeting{
+  font-size: 50px;
+}
+
+#author{
+  font-size: 17px;
+}
+
+#quote{
+  font-style: oblique;
+  font-size: 21px;
+}
+
+#welcome-balance{
+  margin-bottom: 40px;
+  margin-top: 22px;
+}
+
+#balance{
+  display: inline;
+  padding-left: 5px;
+}
+
+#container-balance{
+  width: 100vw;
+  border-bottom: 3px solid black;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-bottom: 20px;
+  background-color: #bdc3c7;
+}
+
+#all-transactions p{
+  padding-left: 1%;
+}
+
+.transaction i{
+  color:red
+}
+
+.sum{
+  padding-left: 1%;
+}
+
+svg{
+  height: 350px;
+  width: 350px;
+  margin-top: 1%;
+  margin-left: 7%;
+}

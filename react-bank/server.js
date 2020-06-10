@@ -5,7 +5,7 @@ const mongoose = require(`mongoose`)
 const api = require(`./server/routes/api`)
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/react-bank`)
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/react-bank`,{ useNewUrlParser: true , useUnifiedTopology: true})
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
