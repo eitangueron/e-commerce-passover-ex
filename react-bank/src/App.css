@@ -136,6 +136,7 @@
 .delete{
   display: grid;
   cursor: pointer;
+  color: red;
 }
 
 .transaction i{
@@ -174,4 +175,14 @@ svg{
 #pie-charts{
   display: grid;
   grid-template-columns: repeat(2,1fr);
+  text-align: center;
+}
+
+
+.all-sums{
+  font-size: 17px;
+}
+
+.underLine{
+  text-decoration: underline;
 }

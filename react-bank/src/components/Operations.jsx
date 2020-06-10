@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
   class Operations extends Component {
@@ -10,6 +10,7 @@ import '../../node_modules/materialize-css/dist/css/materialize.min.css'
         categoryInput:"",
         vendorInput:"",
         amountInput:"",
+        toRedirect:false
       }
     }
 
@@ -36,6 +37,7 @@ import '../../node_modules/materialize-css/dist/css/materialize.min.css'
         this.props.addTransaction(this.state.amountInput, this.state.vendorInput, this.state.categoryInput)
         alert('Added new deposit')
         this.clearInputFields()
+        this.setState({toRedirect:true})
       }
     }
 
@@ -44,12 +46,14 @@ import '../../node_modules/materialize-css/dist/css/materialize.min.css'
         this.props.addTransaction(0-this.state.amountInput, this.state.vendorInput, this.state.categoryInput)
         alert('Added new withdraw')
         this.clearInputFields()
+        this.setState({toRedirect:true})
       }
     }
 
     render() {
-    return (
+      return (
         <div id="operations">
+        {this.state.toRedirect ? <Redirect to="/transactions"/> : null}
               <input type="text" placeholder="Category" name="category-input" value={this.state.categoryInput} onChange={this.updateInput}/>
               <br/>
               <input type="text" placeholder="Vendor" name="vendor-input" value={this.state.vendorInput} onChange={this.updateInput}/>
@@ -60,8 +64,7 @@ import '../../node_modules/materialize-css/dist/css/materialize.min.css'
               <br/>
               <a class="waves-effect waves-light red btn" id="withdraw" onClick={this.withdraw}>Withdraw</a>
           </div>)
-    }
-    
+      }
   }
         
 export default Operations;

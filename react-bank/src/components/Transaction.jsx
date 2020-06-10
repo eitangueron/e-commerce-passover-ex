@@ -10,16 +10,12 @@ import React, { Component } from 'react';
     render() {
         const actionData = this.props.actionData
         return (
-            <div id={this.props.trackNum} className="transaction">
-              <div className="transaction-info">
-                <p className="capitalize">Category: {actionData.category}</p>
-                <p className="capitalize">Vendor: {actionData.vendor}</p>
-                <p>Amount: {actionData.amount}</p>
-              </div>
-              <div className="delete">
-                <i class="material-icons" onClick={this.deleteAction}>delete</i>
-              </div>
-            </div>
+            <tr>
+              <td className="capitalize">{actionData.category}</td>
+              <td className="capitalize">{actionData.vendor}</td>
+              <td>${actionData.amount}</td>
+              <td><div className="delete"><i class="material-icons" onClick={this.deleteAction}>delete</i></div></td>
+            </tr>
             )
     }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Transaction from './Transaction'
+import '../../node_modules/materialize-css/dist/css/materialize.min.css'
 
   class Transactions extends Component {
   
@@ -7,8 +8,20 @@ import Transaction from './Transaction'
         const data = this.props.data
         return (
           <div id="all-transactions">
-            
-            {data.map((action,i) => <Transaction key={'transaction '+i} actionData={action} trackNum={'transaction '+i} deleteAction={this.props.deleteAction}/>)}
+            <table className="striped">
+              <thead>
+                <tr>
+                    <th className="underLine">Category:</th>
+                    <th className="underLine">Vender:</th>
+                    <th className="underLine">Amount:</th>
+                    <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {data.map((action,i) => <Transaction key={'transaction '+i} actionData={action} trackNum={'transaction '+i} deleteAction={this.props.deleteAction}/>)}
+              </tbody>
+            </table>
           </div>
             )
     }
@@ -16,4 +29,5 @@ import Transaction from './Transaction'
   }
         
 export default Transactions;
+
 

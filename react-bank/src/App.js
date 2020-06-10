@@ -14,8 +14,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
     constructor(){
       super()
       this.state={
-        transactions:[],
-        currentPage:'landing'
+        transactions:[]
       }
     }
 
@@ -57,7 +56,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
             <Link to="/analytics">Analytics</Link>
           </div>
           <div id="container-balance">
-            <p id="balance"><b>Current balance:</b> {balance}</p>
+            <p id="balance"><b>Current balance:</b> ${balance}</p>
           </div>
             <Route path="/" exact render={() => <Landing balance={balance}/>}/>
             <Route path="/transactions" exact render={() => <Transactions data={this.state.transactions} deleteAction={this.deleteAction}/>} ></Route>
